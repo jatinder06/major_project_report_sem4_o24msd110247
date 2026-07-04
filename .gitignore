@@ -216,3 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+experimentation/artifacts
+models/
+data/
+.DS_Store

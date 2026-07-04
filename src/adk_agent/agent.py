@@ -26,7 +26,6 @@ from google.adk.agents import LlmAgent
 from src.adk_agent.gemini_retry import install_gemini_retry_patch
 from src.adk_agent.logging_config import configure_adk_logging
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 class _SuppressGenAIPartWarning(logging.Filter):
     """Hide noisy google-genai warning for function-call parts."""
@@ -46,7 +45,7 @@ _genai_logger = logging.getLogger("google_genai.types")
 if not any(isinstance(f, _SuppressGenAIPartWarning) for f in _genai_logger.filters):
     _genai_logger.addFilter(_SuppressGenAIPartWarning())
 
-load_dotenv(PROJECT_ROOT / ".env")
+load_dotenv()
 configure_adk_logging()
 
 install_gemini_retry_patch(
